@@ -1,0 +1,28 @@
+# Core
+fastapi==0.109.1
+uvicorn==0.27.0
+
+# Auth & Security
+python-jose==3.3.0  # JWT support
+passlib==1.7.4      # Password hashing
+bcrypt==4.1.2       # Secure hashing
+
+# Database
+sqlalchemy==2.0.25
+psycopg2-binary==2.9.9  # PostgreSQL (omit if using SQLite)
+aiosqlite==0.20.0       # Async SQLite (optional)
+
+# Groq API
+groq==0.3.0
+
+# Environment & Config
+python-dotenv==1.0.0
+pydantic-settings==2.2.1
+
+# Async Utilities
+anyio==4.3.0
+httpx==0.27.0
+
+# Dev/Testing (Optional)
+pytest==8.0.2
+pytest-asyncio==0.23.5

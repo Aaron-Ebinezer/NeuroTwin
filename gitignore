@@ -1,0 +1,8 @@
+# Ignore ALL .env files (backend + frontend)
+.env
+backend/.env
+frontend/.env
+
+
+# Ignore SQLite database folder
+/backend/data/

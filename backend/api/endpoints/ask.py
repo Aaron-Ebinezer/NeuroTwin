@@ -1,7 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException
-from services.llm.groq import GroqService
-from agents.prompt_engineer.templates import generate_prompt
-from services.database.session import AsyncSession, get_db
+from backend.services.llm.groq import GroqService
+from backend.agents.prompt_engineer.templates import generate_prompt
+from backend.services.database.session import AsyncSession, get_db
+from backend.models.user import User
 
 router = APIRouter()
 

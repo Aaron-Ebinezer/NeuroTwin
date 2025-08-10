@@ -1,6 +1,6 @@
 from sqlalchemy import select, update
 from sqlalchemy.ext.asyncio import AsyncSession
-from models.user import User
+from backend.models.user import User
 
 class UserCRUD:
     @staticmethod

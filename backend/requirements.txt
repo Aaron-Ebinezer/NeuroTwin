@@ -10,3 +10,6 @@ sqlalchemy==2.0.29
 aiosqlite==0.20.0
 groq==0.3.0
 python-dotenv==1.0.0
+
+httpx
+pytest

@@ -1,5 +1,6 @@
-from models.user import User, Feedback
+from backend.models.user import User, Feedback
 from .rules import calculate_user_tier
+from sqlalchemy.ext.asyncio import AsyncSession
 
 async def process_feedback(
         session: AsyncSession, user_id: int,

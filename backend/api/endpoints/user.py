@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
-from services.database.crud import UserCRUD
-from services.database.session import AsyncSession, get_db
+from backend.services.database.crud import UserCRUD
+from backend.services.database.session import AsyncSession, get_db
 
 router = APIRouter()
 

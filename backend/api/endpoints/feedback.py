@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
-from agents.profiler.feedback import process_feedback
-from services.database.session import AsyncSession, get_db
+from backend.agents.profiler.feedback import process_feedback
+from backend.services.database.session import AsyncSession, get_db
 
 router = APIRouter()
 

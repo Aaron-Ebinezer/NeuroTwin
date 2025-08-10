@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from api.endpoints import user, ask, feedback
-from services.database.session import init_db
+from backend.api.endpoints import user, ask, feedback
+from backend.services.database.session import init_db
 import asyncio
 
 app = FastAPI()

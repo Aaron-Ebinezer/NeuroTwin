@@ -1,6 +1,7 @@
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from datetime import datetime, timedelta
+import os
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = "HS256"

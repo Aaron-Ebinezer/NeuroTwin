@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
-from backend.services.llm.groq import GroqService
+from backend.services.llm.groq_service import GroqService
 from backend.agents.prompt_engineer.templates import generate_prompt
 from backend.services.database.session import AsyncSession, get_db
 from backend.models.user import User

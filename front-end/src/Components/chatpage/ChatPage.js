@@ -11,19 +11,45 @@ export default function ChatPage() {
     { sender: "bot", text: "👋 Hi there! I'm your fun chat buddy. How can I help today?" }
   ]);
   const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     if (!input.trim()) return;
-    setMessages([...messages, { sender: "user", text: input }]);
 
-    setTimeout(() => {
-      setMessages((m) => [
-        ...m,
-        { sender: "bot", text: "✨ Wow, that's cool! Tell me more..." }
-      ]);
-    }, 800);
+    const newMessages = [...messages, { sender: "user", text: input }];
+    setMessages(newMessages);
 
+    const userMessage = input;
     setInput("");
+    setLoading(true);
+
+    try {
+
+      const res = await fetch(`http://localhost:8000/ask?question=${encodeURIComponent(userMessage)}`, {
+                    method: "POST"
+                    });
+
+
+      if (!res.ok) {
+        throw new Error("Failed to get response");
+      }
+
+      const data = await res.json();
+
+      setMessages((prev) => [
+        ...prev,
+        { sender: "bot", text: data.answer }
+      ]);
+
+    } catch (error) {
+      console.error(error);
+      setMessages((prev) => [
+        ...prev,
+        { sender: "bot", text: "⚠️ Sorry, something went wrong." }
+      ]);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -46,6 +72,9 @@ export default function ChatPage() {
             {msg.text}
           </div>
         ))}
+        {loading && (
+          <div className="message bot">⏳ Thinking...</div>
+        )}
       </div>
 
       <div className="chat-input">

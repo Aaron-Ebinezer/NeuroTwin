@@ -4,10 +4,10 @@ from contextlib import asynccontextmanager
 import os
 
 Base = declarative_base()
-DB_URL = os.getenv("DATABASE_URL","sqlite+aiosqlite:///./data/tutor.db")
+DB_URL = os.getenv("DATABASE_URL","sqlite+aiosqlite:///C:/projects/NeuroTwin/NeuroTwin/backend/data/tutor.db")
 engine = create_async_engine(
     DB_URL,
-    echo = False,
+    echo = True,
     connect_args={"check_same_thread": False}
 )
 
